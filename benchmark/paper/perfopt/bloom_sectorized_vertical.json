@@ -67,22 +67,8 @@
         "SIMD": "AVX512"
       },
       "parameter": {
-        "k": [ 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24 ],
+        "k": [ 8, 16 ],
         "n_partitions": [ 1 ]
-      }
-    },
-    {
-      "name": "Bloom_Sectorized128Vertical_Part_AVX512",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Sectorized128Vertical"
-      },
-      "optimization": {
-        "Partitioning": "Enabled",
-        "SIMD": "AVX512"
-      },
-      "parameter": {
-        "k": [ 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24 ]
       }
     },
     {
@@ -95,21 +81,8 @@
         "Partitioning": "Disabled"
       },
       "parameter": {
-        "k": [ 4, 8, 12, 16, 20, 24 ],
+        "k": [ 8, 16 ],
         "n_partitions": [ 1 ]
-      }
-    },
-    {
-      "name": "Bloom_Sectorized256Vertical_Part_AVX512",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Sectorized256Vertical"
-      },
-      "optimization": {
-        "Partitioning": "Enabled"
-      },
-      "parameter": {
-        "k": [ 4, 8, 12, 16, 20, 24 ]
       }
     },
     {
@@ -122,21 +95,8 @@
         "Partitioning": "Disabled"
       },
       "parameter": {
-        "k": [ 8, 16, 24 ],
+        "k": [ 8, 16 ],
         "n_partitions": [ 1 ]
-      }
-    },
-    {
-      "name": "Bloom_Sectorized512Vertical_Part_AVX512",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Sectorized512Vertical"
-      },
-      "optimization": {
-        "Partitioning": "Enabled"
-      },
-      "parameter": {
-        "k": [ 8, 16, 24 ]
       }
     }
   ]

@@ -1,0 +1,73 @@
+{
+  "name": "VQF (perfopt)",
+  "iterations": 5,
+  "preprocess": "preprocess_s_and_n_elements_log",
+  "fixture": "MTCount",
+  "generator": "RandomHuge2",
+  "visualization": {
+    "enable": false
+  },
+  "parameter": {
+    "k": [ 8, 16 ],
+    "s": [
+      400,
+      2600,
+      100,
+      100,
+      2600
+    ],
+    "n_partitions": [ 1 ],
+    "n_threads": [ 10 ],
+    "n_elements": [
+      {
+        "build": 10,
+        "lookup": 10,
+        "shared": 10
+      },
+      {
+        "build": 4,
+        "lookup": 8,
+        "shared": 10
+      },
+      {
+        "build": 8,
+        "lookup": 8,
+        "shared": 10
+      },
+      {
+        "build": 25,
+        "lookup": 0,
+        "shared": 10
+      },
+      {
+        "build": 1000,
+        "lookup": 100000000,
+        "shared": 10
+      }
+    ]
+  },
+  "optimization": {
+    "Addressing": "Magic",
+    "Hashing": "Murmur",
+    "Partitioning": null,
+    "RegisterSize": "_64bit",
+    "SIMD": "AVX512",
+    "EarlyStopping": "Disabled",
+    "MultiThreading": "Disabled"
+  },
+  "benchmarks": [
+    {
+      "name": "VQF_Nonpart_AVX512",
+      "filter": {
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "n_partitions": [ 1 ]
+      }
+    }
+  ]
+}

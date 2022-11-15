@@ -1,0 +1,169 @@
+{
+  "name": "Scalar bloom filters (perfopt)",
+  "iterations": 5,
+  "preprocess": "preprocess_s_and_n_elements_log",
+  "fixture": "MTCount",
+  "generator": "RandomHuge2",
+  "visualization": {
+    "enable": false
+  },
+  "parameter": {
+    "k": [ 8, 16 ],
+    "s": [
+      400,
+      2600,
+      100,
+      100,
+      2600
+    ],
+    "n_partitions": [ 1 ],
+    "n_threads": [ 10 ],
+    "n_elements": [
+      {
+        "build": 10,
+        "lookup": 10,
+        "shared": 10
+      },
+      {
+        "build": 4,
+        "lookup": 8,
+        "shared": 10
+      },
+      {
+        "build": 8,
+        "lookup": 8,
+        "shared": 10
+      },
+      {
+        "build": 25,
+        "lookup": 0,
+        "shared": 10
+      },
+      {
+        "build": 1000,
+        "lookup": 100000000,
+        "shared": 10
+      }
+    ]
+  },
+  "optimization": {
+    "Addressing": "Magic",
+    "Hashing": "Murmur",
+    "Partitioning": null,
+    "RegisterSize": "_64bit",
+    "SIMD": "Scalar",
+    "EarlyStopping": "Disabled",
+    "MultiThreading": "Disabled"
+  },
+  "benchmarks": [
+    {
+      "name": "Bloom_Blocked64_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Blocked64"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Blocked512_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Blocked512"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Grouped2_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Grouped2"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "k": [ 8, 16 ],
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Grouped4_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Grouped4"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "k": [ 8, 16 ],
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Naive64_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Naive64"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Sectorized128_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Sectorized128"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "k": [ 8, 16 ],
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Sectorized256_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Sectorized256"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "k": [ 8, 16 ],
+        "n_partitions": [ 1 ]
+      }
+    },
+    {
+      "name": "Bloom_Sectorized512_Nonpart_Scalar",
+      "filter": {
+        "type": "Bloom",
+        "variant": "Sectorized512"
+      },
+      "optimization": {
+        "Partitioning": "Disabled"
+      },
+      "parameter": {
+        "k": [ 8, 16 ],
+        "n_partitions": [ 1 ]
+      }
+    }
+  ]
+}

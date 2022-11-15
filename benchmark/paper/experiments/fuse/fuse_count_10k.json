@@ -89,6 +89,30 @@
         "Partitioning": "Disabled",
         "SIMD": "AVX512"
       }
+    },
+    {
+      "name": "Fuse_Part_Scalar",
+      "filter": {
+        "type": "Xor",
+        "variant": "Fuse"
+      },
+      "optimization": {
+        "Addressing": "Lemire",
+        "Partitioning": "Enabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Fuse_Part_AVX512",
+      "filter": {
+        "type": "Xor",
+        "variant": "Fuse"
+      },
+      "optimization": {
+        "Addressing": "Lemire",
+        "Partitioning": "Enabled",
+        "SIMD": "AVX512"
+      }
     }
   ]
 }

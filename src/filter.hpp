@@ -3,11 +3,17 @@
 #include "filter_base.hpp"
 
 /*
- * Own Implementations
+ * partitioned-filters implementations
  */
 #include <bloom/bloom_filter.hpp>
 #include <xor/xor_filter.hpp>
 #include <cuckoo/cuckoo_filter.hpp>
+
+/**
+ * Vector Quotient Filter implementation
+ * 
+ */
+#include <vqf/vector_quotient_filter.hpp>
 
 /*
  * Reference Implementations

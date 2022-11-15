@@ -13,6 +13,7 @@
 #include "vacuumfilter/vacuumfilter_test.hpp"
 #include "amd_mortonfilter/amd_mortonfilter_test.hpp"
 #include "div/div_test.hpp"
+#include "vqf/vqf_test.hpp"
 
 #ifdef ENABLE_BSD
 
@@ -21,7 +22,7 @@
 
 #endif
 
-namespace test::bloom {
+/**namespace test::bloom {
 
     INSTANTIATE_TYPED_TEST_CASE_P(BloomNaive32TestTypes, FilterTest, BloomNaive32TestTypes);
 
@@ -73,9 +74,26 @@ namespace test::nxor::pointer {
 
     INSTANTIATE_TYPED_TEST_CASE_P(XorTestTypes, FilterPointerTest, XorTestTypes);
 
+}**/
+
+namespace test::vqf {
+    
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFSmall64TestTypes, FilterTest, VQFSmall64TestTypes);
+
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFSmall32TestTypes, FilterTest, VQFSmall32TestTypes);
+
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFLarge64TestTypes, FilterTest, VQFLarge64TestTypes);
+
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFLarge32TestTypes, FilterTest, VQFLarge32TestTypes);
+    
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFAVX512SmallTestTypes, FilterTest, VQFAVX512SmallTestTypes);
+
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFAVX512LargeTestTypes, FilterTest, VQFAVX512LargeTestTypes);
+
+    INSTANTIATE_TYPED_TEST_CASE_P(VQFMTScalarTestTypes, FilterTest, VQFMTScalarTestTypes);
 }
 
-namespace test::cuckoo {
+/**namespace test::cuckoo {
 
     INSTANTIATE_TYPED_TEST_CASE_P(CuckooStandard2TestTypes, FilterTest, CuckooStandard2TestTypes);
 
@@ -231,6 +249,6 @@ namespace test::div {
 
     INSTANTIATE_TYPED_TEST_CASE_P(Div140TestTypes, DivModTest, Div140TestTypes);
 
-}
+}**/
 
 MAIN();

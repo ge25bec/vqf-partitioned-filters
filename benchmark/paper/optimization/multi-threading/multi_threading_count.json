@@ -1,5 +1,5 @@
 {
-  "name": "Multi-Threading (Count)",
+  "name": "VQF Multi-Threading (Count)",
   "iterations": 5,
   "fixture": "Count",
   "generator": "Prime",
@@ -12,14 +12,7 @@
     ],
     "s": null,
     "n_partitions": [
-      128,
-      256,
-      512,
-      1024,
-      2048,
-      4096,
-      8192,
-      16384
+      1
     ],
     "n_threads": [
       1,
@@ -54,7 +47,7 @@
   "optimization": {
     "Addressing": "Lemire",
     "Hashing": "Murmur",
-    "Partitioning": null,
+    "Partitioning": "Disabled",
     "RegisterSize": "_64bit",
     "SIMD": "Scalar",
     "EarlyStopping": "Disabled",
@@ -64,19 +57,15 @@
     {
       "name": "InitialiseData",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Disabled",
         "MultiThreading": "Disabled"
       },
       "parameter": {
         "s": [
-          150
-        ],
-        "n_partitions": [
-          1
+          125
         ],
         "n_threads": [
           1
@@ -84,40 +73,17 @@
       }
     },
     {
-      "name": "BloomBlocked",
+      "name": "VQF_Scalar",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Disabled",
         "MultiThreading": "Disabled"
       },
       "parameter": {
         "s": [
-          150
-        ],
-        "n_threads": [
-          1
-        ],
-        "n_partitions": [
-          1
-        ]
-      }
-    },
-    {
-      "name": "BloomBlockedPartitioned",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Partitioning": "Enabled",
-        "MultiThreading": "Disabled"
-      },
-      "parameter": {
-        "s": [
-          150
+          125
         ],
         "n_threads": [
           1
@@ -125,18 +91,17 @@
       }
     },
     {
-      "name": "BloomBlockedPartitionedMT",
+      "name": "VQF_MT",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Enabled",
         "MultiThreading": "Enabled"
       },
       "parameter": {
         "s": [
-          150
+          125
         ]
       }
     }

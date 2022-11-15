@@ -87,6 +87,28 @@
         "Partitioning": "Disabled",
         "SIMD": "AVX512"
       }
+    },
+    {
+      "name": "Xor_Part_Scalar",
+      "filter": {
+        "type": "Xor",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Partitioning": "Enabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Xor_Part_AVX512",
+      "filter": {
+        "type": "Xor",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Partitioning": "Enabled",
+        "SIMD": "AVX512"
+      }
     }
   ]
 }

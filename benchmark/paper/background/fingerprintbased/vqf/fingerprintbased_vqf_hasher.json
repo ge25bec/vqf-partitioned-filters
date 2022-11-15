@@ -1,0 +1,94 @@
+{
+    "name": "VQF Hashers",
+    "iterations": 100,
+    "threads": 32,
+    "preprocess": "preprocess_s",
+    "fixture": "FPR",
+    "generator": "Random",
+    "visualization": {
+      "enable": false
+    },
+    "parameter": {
+      "execution_time": 1,
+      "k": [16, 8],
+      "s": [
+        500,
+        2500,
+        25,
+        100,
+        200
+      ],
+      "n_partitions": [
+        1
+      ],
+      "n_threads": [
+        1
+      ],
+      "n_elements": [
+        {
+          "build": 1000000,
+          "lookup": 10000000,
+          "shared": 0
+        }
+      ]
+    },
+    "optimization": {
+      "Addressing": "Lemire",
+      "Hashing": "Murmur",
+      "Partitioning": "Disabled",
+      "RegisterSize": "_64bit",
+      "SIMD": "Scalar",
+      "EarlyStopping": "Disabled",
+      "MultiThreading": "Disabled"
+    },
+    "benchmarks": [
+      {
+        "name": "VQF_Murmur",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        }
+      },
+      {
+        "name": "VQF_Fasthash",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        },
+        "optimization": {
+          "Hashing": "Fasthash"
+        }
+      },
+      {
+        "name": "VQF_Cityhash",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        },
+        "optimization": {
+          "Hashing": "Cityhash"
+        }
+      },
+      {
+        "name": "VQF_TwoIndependentMultiplyShift",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        },
+        "optimization": {
+          "Hashing": "TwoIndependentMultiplyShift"
+        }
+      },
+      {
+        "name": "VQF_Mul",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        },
+        "optimization": {
+          "Hashing": "Mul"
+        }
+      }
+    ]
+  }
+  

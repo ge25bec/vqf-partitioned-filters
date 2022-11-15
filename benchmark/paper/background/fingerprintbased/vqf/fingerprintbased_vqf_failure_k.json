@@ -1,0 +1,80 @@
+{
+    "name": "Fingerprint-Based Failure K (VQF)",
+    "iterations": 100,
+    "threads": 32,
+    "fixture": "FPR",
+    "generator": "Random",
+    "visualization": {
+      "enable": false
+    },
+    "parameter": {
+      "execution_time": 1,
+      "k": null,
+      "s": null,
+      "n_partitions": [
+        1
+      ],
+      "n_threads": [
+        1
+      ],
+      "n_elements": [
+        {
+          "build": 1000000,
+          "lookup": 10000000,
+          "shared": 0
+        }
+      ]
+    },
+    "optimization": {
+      "Addressing": "Lemire",
+      "Hashing": "Murmur",
+      "Partitioning": "Disabled",
+      "RegisterSize": "_64bit",
+      "SIMD": "Scalar",
+      "EarlyStopping": "Disabled",
+      "MultiThreading": "Disabled"
+    },
+    "benchmarks": [
+      {
+        "name": "VQF",
+        "filter": {
+          "type": "VectorQuotientFilter",
+          "variant": "Standard"
+        },
+        "parameter": {
+          "k": [
+            8, 16
+          ],
+          "s": [
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125
+          ]
+        }
+      }
+    ]
+  }
+  

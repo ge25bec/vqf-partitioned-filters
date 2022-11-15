@@ -87,6 +87,28 @@
         "Partitioning": "Disabled",
         "SIMD": "AVX512"
       }
+    },
+    {
+      "name": "Cuckoo_Part_Scalar",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "CuckooOpt"
+      },
+      "optimization": {
+        "Partitioning": "Enabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Cuckoo_Part_AVX512",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "CuckooOpt"
+      },
+      "optimization": {
+        "Partitioning": "Enabled",
+        "SIMD": "AVX512"
+      }
     }
   ]
 }

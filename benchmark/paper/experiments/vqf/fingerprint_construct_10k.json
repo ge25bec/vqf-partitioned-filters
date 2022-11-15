@@ -1,0 +1,155 @@
+{
+  "name": "Fingerprint Construct 10K",
+  "iterations": 5,
+  "preprocess": "preprocess_s",
+  "fixture": "Construct",
+  "generator": "Random",
+  "visualization": {
+    "enable": false
+  },
+  "parameter": {
+    "k": [
+      8,
+      16
+    ],
+    "s": [
+      400,
+      2600,
+      100,
+      100,
+      2600
+    ],
+    "n_partitions": [
+      1
+    ],
+    "n_threads": [
+      10
+    ],
+    "n_elements": [
+      {
+        "build": 10000,
+        "lookup": 100000000,
+        "shared": 10
+      }
+    ]
+  },
+  "optimization": {
+    "Addressing": "Lemire",
+    "Hashing": "Murmur",
+    "Partitioning": "Disabled",
+    "RegisterSize": "_64bit",
+    "SIMD": null,
+    "EarlyStopping": "Disabled",
+    "MultiThreading": "Disabled"
+  },
+  "benchmarks": [
+    {
+      "name": "VQF_Nonpart_Scalar",
+      "filter": {
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "VQF_Nonpart_AVX512",
+      "filter": {
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "SIMD": "AVX512"
+      }
+    },
+    {
+      "name": "Cuckoo_Nonpart_Scalar",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "CuckooOpt"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Cuckoo_Nonpart_AVX512",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "CuckooOpt"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "AVX512"
+      }
+    },
+    {
+      "name": "Fuse_Nonpart_Scalar",
+      "filter": {
+        "type": "Xor",
+        "variant": "Fuse"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Fuse_Nonpart_AVX512",
+      "filter": {
+        "type": "Xor",
+        "variant": "Fuse"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "AVX512"
+      }
+    },
+    {
+      "name": "Morton_Nonpart_Scalar",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "MortonOpt"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Morton_Nonpart_AVX512",
+      "filter": {
+        "type": "Cuckoo",
+        "variant": "MortonOpt"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "AVX512"
+      }
+    },
+    {
+      "name": "Xor_Nonpart_Scalar",
+      "filter": {
+        "type": "Xor",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "Scalar"
+      }
+    },
+    {
+      "name": "Xor_Nonpart_AVX512",
+      "filter": {
+        "type": "Xor",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Partitioning": "Disabled",
+        "SIMD": "AVX512"
+      }
+    }
+  ]
+}

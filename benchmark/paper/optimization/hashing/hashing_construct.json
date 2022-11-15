@@ -1,5 +1,5 @@
 {
-  "name": "Hashing (Construct)",
+  "name": "VQF Hashing (Construct)",
   "iterations": 5,
   "fixture": "Construct",
   "generator": "Random",
@@ -10,7 +10,9 @@
     "k": [
       8
     ],
-    "s": null,
+    "s": [
+      125
+    ],
     "n_partitions": [
       1
     ],
@@ -34,256 +36,61 @@
     {
       "name": "InitialiseData",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Hashing": "Cityhash"
-      },
-      "parameter": {
-        "s": [
-          150
-        ]
-      }
-    },
-    {
-      "name": "BloomBlockedCityhash",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Hashing": "Cityhash"
-      },
-      "parameter": {
-        "s": [
-          150
-        ]
-      }
-    },
-    {
-      "name": "BloomBlockedMurmur",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Hashing": "Murmur"
-      },
-      "parameter": {
-        "s": [
-          150
-        ]
-      }
-    },
-    {
-      "name": "BloomBlockedFasthash",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Hashing": "Fasthash"
-      },
-      "parameter": {
-        "s": [
-          150
-        ]
-      }
-    },
-    {
-      "name": "BloomBlockedMul",
-      "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
-      },
-      "optimization": {
-        "Hashing": "Mul"
-      },
-      "parameter": {
-        "s": [
-          150
-        ]
-      }
-    },
-    {
-      "name": "CuckooCityhash",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "CuckooOpt"
-      },
-      "optimization": {
-        "Hashing": "Cityhash"
-      },
-      "parameter": {
-        "s": [
-          106
-        ]
-      }
-    },
-    {
-      "name": "CuckooMurmur",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "CuckooOpt"
-      },
-      "optimization": {
-        "Hashing": "Murmur"
-      },
-      "parameter": {
-        "s": [
-          106
-        ]
-      }
-    },
-    {
-      "name": "CuckooFasthash",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "CuckooOpt"
-      },
-      "optimization": {
-        "Hashing": "Fasthash"
-      },
-      "parameter": {
-        "s": [
-          106
-        ]
-      }
-    },
-    {
-      "name": "CuckooMul",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "CuckooOpt"
-      },
-      "optimization": {
-        "Hashing": "Mul"
-      },
-      "parameter": {
-        "s": [
-          106
-        ]
-      }
-    },
-    {
-      "name": "MortonCityhash",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "MortonOpt"
-      },
-      "optimization": {
-        "Hashing": "Cityhash"
-      },
-      "parameter": {
-        "s": [
-          138
-        ]
-      }
-    },
-    {
-      "name": "MortonMurmur",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "MortonOpt"
-      },
-      "optimization": {
-        "Hashing": "Murmur"
-      },
-      "parameter": {
-        "s": [
-          138
-        ]
-      }
-    },
-    {
-      "name": "MortonFasthash",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "MortonOpt"
-      },
-      "optimization": {
-        "Hashing": "Fasthash"
-      },
-      "parameter": {
-        "s": [
-          138
-        ]
-      }
-    },
-    {
-      "name": "MortonMul",
-      "filter": {
-        "type": "Cuckoo",
-        "variant": "MortonOpt"
-      },
-      "optimization": {
-        "Hashing": "Mul"
-      },
-      "parameter": {
-        "s": [
-          138
-        ]
-      }
-    },
-    {
-      "name": "XorCityhash",
-      "filter": {
-        "type": "Xor",
+        "type": "VectorQuotientFilter",
         "variant": "Standard"
       },
       "optimization": {
         "Hashing": "Cityhash"
-      },
-      "parameter": {
-        "s": [
-          123
-        ]
       }
     },
     {
-      "name": "XorMurmur",
+      "name": "VQFCityhash",
       "filter": {
-        "type": "Xor",
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
+      },
+      "optimization": {
+        "Hashing": "Cityhash"
+      }
+    },
+    {
+      "name": "VQFMurmur",
+      "filter": {
+        "type": "VectorQuotientFilter",
         "variant": "Standard"
       },
       "optimization": {
         "Hashing": "Murmur"
-      },
-      "parameter": {
-        "s": [
-          123
-        ]
       }
     },
     {
-      "name": "XorFasthash",
+      "name": "VQFFasthash",
       "filter": {
-        "type": "Xor",
+        "type": "VectorQuotientFilter",
         "variant": "Standard"
       },
       "optimization": {
         "Hashing": "Fasthash"
-      },
-      "parameter": {
-        "s": [
-          123
-        ]
       }
     },
     {
-      "name": "XorMul",
+      "name": "VQFMul",
       "filter": {
-        "type": "Xor",
+        "type": "VectorQuotientFilter",
         "variant": "Standard"
       },
       "optimization": {
         "Hashing": "Mul"
+      }
+    },
+    {
+      "name": "VQFTwoIndependentMultiplyShift",
+      "filter": {
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
-      "parameter": {
-        "s": [
-          123
-        ]
+      "optimization": {
+        "Hashing": "TwoIndependentMultiplyShift"
       }
     }
   ]

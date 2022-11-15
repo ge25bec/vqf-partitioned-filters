@@ -1,5 +1,5 @@
 {
-  "name": "Multi-Threading (Construct)",
+  "name": "VQF Multi-Threading (Construct)",
   "iterations": 5,
   "fixture": "Construct",
   "generator": "Prime",
@@ -10,16 +10,11 @@
     "k": [
       8
     ],
-    "s": null,
+    "s": [
+      125
+    ],
     "n_partitions": [
-      128,
-      256,
-      512,
-      1024,
-      2048,
-      4096,
-      8192,
-      16384
+      1
     ],
     "n_threads": [
       1,
@@ -50,7 +45,7 @@
   "optimization": {
     "Addressing": "Lemire",
     "Hashing": "Murmur",
-    "Partitioning": null,
+    "Partitioning": "Disabled",
     "RegisterSize": "_64bit",
     "SIMD": "Scalar",
     "EarlyStopping": "Disabled",
@@ -60,19 +55,15 @@
     {
       "name": "InitialiseData",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Disabled",
         "MultiThreading": "Disabled"
       },
       "parameter": {
         "s": [
-          150
-        ],
-        "n_partitions": [
-          1
+          125
         ],
         "n_threads": [
           1
@@ -80,18 +71,17 @@
       }
     },
     {
-      "name": "BloomBlockedPartitioned",
+      "name": "VQF_Scalar",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Enabled",
         "MultiThreading": "Disabled"
       },
       "parameter": {
         "s": [
-          150
+          125
         ],
         "n_threads": [
           1
@@ -99,18 +89,17 @@
       }
     },
     {
-      "name": "BloomBlockedPartitionedMT",
+      "name": "VQF_MT",
       "filter": {
-        "type": "Bloom",
-        "variant": "Blocked512"
+        "type": "VectorQuotientFilter",
+        "variant": "Standard"
       },
       "optimization": {
-        "Partitioning": "Enabled",
         "MultiThreading": "Enabled"
       },
       "parameter": {
         "s": [
-          150
+          125
         ]
       }
     }

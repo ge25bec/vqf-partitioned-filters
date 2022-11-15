@@ -17,7 +17,8 @@ namespace filters {
         BSDCuckoo,
         EfficientCuckooFilter,
         AMDMortonFilter,
-        VacuumFilter
+        VacuumFilter,
+        VectorQuotientFilter
     };
 
     template<FilterType filter, typename FilterParameter, size_t k, typename OptimizationParameter>
