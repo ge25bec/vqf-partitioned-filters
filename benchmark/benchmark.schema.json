@@ -363,6 +363,21 @@
           "properties": {
             "type": {
               "type": "string",
+              "const": "VectorQuotientFilter"
+            },
+            "variant": {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "SmallFingerprints"
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
               "const": "Cuckoo"
             },
             "variant": {

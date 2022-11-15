@@ -1,9 +1,8 @@
-# Vector Quotient Filter
-
-This project contains an implementation of the Vector Quotient Filter, introduced by Pandey, et al. [1].
-The VectorQuotientFilterContainer structure contains the entire filter. There are template-specialised versions for the structure that support AVX2 or AVX512 intrinsics. The scalar and AVX2 structure supports lookups, insertions or removals of input keys, the AVX512 version only supports lookups and insertions.
+# Partitioned Filters - Vector Quotient Filter
+This project is a fork off the *partitioned-filters* repository [3] (see LICENSE in root directory), into which my implementation of the Vector Quotient Filter from the repository https://gitlab.db.in.tum.de/ge25bec/vector-quotient-filter was integrated. The Vector Quotient Filter was introduced by Pandey, et al. [1].
+The VectorQuotientFilterContainer structure in src/vqf contains the whole filter. There are template-specialised versions for the structure that support AVX2 or AVX512 intrinsics. The scalar and AVX2 structure supports lookups, insertions or removals of input keys, the AVX512 version only supports lookups and insertions.
 The VQFBlock structure represents a block inside the filter. There are again template-specialised versions of it for the different SIMD levels. The "select(uint8_t i)" functions inside "vqf_block.hpp" are taken from the github repository of the original VQF prototype [2]. The License for these functions can be found in src/vqf.
-The project was integrated into the *partitioned-filters* repository [3] (see LICENSE in root directory), which offered tools to test, benchmark and plot the filter. The *partitioned-filters* repository was the basis for *A four-dimensional Analysis of Partitioned Approximate Filters* by Schmidt, et al. [4].
+The Vector Quotient Filter was integrated into the *partitioned-filters* repository [3], to test, benchmark and plot the filter. The *partitioned-filters* repository was the basis for *A four-dimensional Analysis of Partitioned Approximate Filters* by Schmidt, et al. [4], which sets the metrics of false positive rate, lookup/build performance and space usage to evaluate the filter performance.
 
 ## Related Work
 

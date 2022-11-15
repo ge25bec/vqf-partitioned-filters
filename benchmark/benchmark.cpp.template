@@ -1,5 +1,6 @@
 #include <filter.hpp>
 #include <parameter/parameter.hpp>
+#include <vqf/vqf_parameter.hpp>
 #include <bloom/bloom_parameter.hpp>
 #include <xor/xor_parameter.hpp>
 #include <cuckoo/cuckoo_parameter.hpp>
@@ -16,6 +17,7 @@
 #include <benchmark_config.hpp>
 #include <main.hpp>
 
+namespace VectorQuotientFilter = filters::vqf;
 namespace Bloom = filters::bloom;
 namespace Xor = filters::nxor;
 namespace Cuckoo = filters::cuckoo;
