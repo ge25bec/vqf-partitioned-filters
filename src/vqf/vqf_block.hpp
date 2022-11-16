@@ -19,6 +19,7 @@ namespace filters::vqf {
  * 
  * taken from:
  * P. Pandey, A. Conway, and R. Johnson. vqf. Mar. 2021. https://github.com/splatlab/vqf (visited on 11/07/2022).
+ * see LICENSE in src/vqf
  */
 static uint64_t pdepMask[64 + 128] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
    1ULL << 0, 1ULL << 1, 1ULL << 2, 1ULL << 3, 1ULL << 4, 1ULL << 5, 1ULL << 6, 1ULL << 7, 1ULL << 8, 1ULL << 9,
